@@ -15,7 +15,6 @@
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DebugType>none</DebugType>
   </PropertyGroup>
-  <ItemGroup />
   <ItemGroup>
     <Reference Include="UnityEngine">
       <HintPath>..\..\..\Mod\Original\Nro_245\Nro_245_Data\Managed\UnityEngine.dll</HintPath>

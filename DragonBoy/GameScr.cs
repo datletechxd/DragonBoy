@@ -1,5 +1,6 @@
 using System;
 using Assets.src.g;
+using DragonBoy.Mod;
 
 public class GameScr : mScreen, IChatable
 {
@@ -4732,6 +4733,7 @@ public class GameScr : mScreen, IChatable
 
 	public override void update()
 	{
+		MainMod.update();
 		if (GameCanvas.keyPressed[16])
 		{
 			GameCanvas.keyPressed[16] = false;

@@ -9,6 +9,8 @@ namespace DragonBoy.Mod
     {
         public static MainMod _Instance;
 
+        public static int runSpeed = 8;
+
         public static MainMod getInstance()
         {
             if (_Instance == null)
@@ -16,6 +18,11 @@ namespace DragonBoy.Mod
                 _Instance = new MainMod();
             }
             return _Instance;
+        }
+
+        public static void update()
+        {
+            global::Char.myCharz().cspeed = runSpeed;
         }
     }
 }

@@ -85,6 +85,7 @@ public class Main : MonoBehaviour
 	private void Start()
 	{
 		Application.targetFrameRate = 60;
+		Time.timeScale = 2.5f;
 		if (started)
 		{
 			return;
