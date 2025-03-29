@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Assets.src.e;
 
 namespace DragonBoy.Mod
 {
@@ -136,6 +137,12 @@ namespace DragonBoy.Mod
                 listBosses[i].paint(g, GameCanvas.w - 2, num, mFont.RIGHT);
                 num += 10;
             }
+        }
+
+        public static void paintSkillCoolDown(mGraphics g, Skill skill, int i)
+        {
+            long num4 = (long)skill.coolDown - mSystem.currentTimeMillis() + skill.lastTimeUseThisSkill;
+            mFont.tahoma_7b_white.drawString(g, (num4 > 0L) ? string.Concat(num4 / 1000L) : string.Empty, GameScr.xSkill + GameScr.xS[i] + 14, GameScr.yS[i] + 8, mFont.CENTER, mFont.tahoma_7b_red);
         }
     }
 }
