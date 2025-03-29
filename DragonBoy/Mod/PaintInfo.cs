@@ -11,6 +11,8 @@ namespace DragonBoy.Mod
 
         public static List<global::Char> listCharsInMap = new List<global::Char>();
 
+        public static List<Boss> listBosses = new List<Boss>();
+
         public static PaintInfo getInstance()
         {
             if (_Instance == null)
@@ -36,6 +38,7 @@ namespace DragonBoy.Mod
         public static void paint(mGraphics g)
         {
             paintListCharsInMap(g);
+            paintListBosses(g);
 
             mFont.tahoma_7b_white.drawString(g, string.Concat(new string[]
             {
@@ -44,10 +47,9 @@ namespace DragonBoy.Mod
                 " [",
                 TileMap.zoneID.ToString(),
                 "]"
-            }), 25, GameCanvas.h - 200, 0);
+            }), 25, GameCanvas.h - 190, 0);
 
-            mFont.tahoma_7b_white.drawString(g, "Time: " + DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"), 25, GameCanvas.h - 210, 0);
-            int num = GameCanvas.h - 180;
+            mFont.tahoma_7b_white.drawString(g, "Time: " + DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"), 25, GameCanvas.h - 180, 0);
         }
 
         public static bool isBoss(global::Char ch)
@@ -121,6 +123,18 @@ namespace DragonBoy.Mod
                     }
                     num += heightRect + 1;
                 }
+            }
+        }
+
+        public static void paintListBosses(mGraphics g)
+        {
+            int num = 42;
+            for (int i = 0; i < listBosses.Count; i++)
+            {
+                g.setColor(2721889, 0.5f);
+                g.fillRect(GameCanvas.w - 23, num + 2, 21, 9);
+                listBosses[i].paint(g, GameCanvas.w - 2, num, mFont.RIGHT);
+                num += 10;
             }
         }
     }
