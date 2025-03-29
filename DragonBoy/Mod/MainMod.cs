@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 
 namespace DragonBoy.Mod
 {
@@ -24,6 +25,20 @@ namespace DragonBoy.Mod
         {
             global::Char.myCharz().cspeed = runSpeed;
             PaintInfo.update();
+        }
+
+        public static void onChatFromMe(String text)
+        {
+            if (text.Contains("ahsnm"))
+            {
+                AutoSkill.isAutoBuff = !AutoSkill.isAutoBuff;
+                if (AutoSkill.isAutoBuff)
+                {
+                    new Thread(new ThreadStart(AutoSkill.autoBuff)).Start();
+                }
+                GameScr.info1.addInfo("Auto hồi sinh namec: " + (AutoSkill.isAutoBuff ? "On" : "Off"), 0);
+                text = string.Empty;
+            }
         }
     }
 }
