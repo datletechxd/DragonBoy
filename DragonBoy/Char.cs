@@ -968,9 +968,9 @@ public class Char : IMapObject
 
 	private Image imgHPtem;
 
-	private bool isPet;
+	public bool isPet;
 
-	private bool isMiniPet;
+    public bool isMiniPet;
 
 	private int iiii;
 
@@ -1254,7 +1254,7 @@ public class Char : IMapObject
 
 	private MainImage mainImg;
 
-	public Char()
+    public Char()
 	{
 		statusMe = 6;
 	}
@@ -8435,4 +8435,17 @@ public class Char : IMapObject
 		}
 		Res.err("===== tim thay DanhHieu ve danh hieu ra");
 	}
+
+    public string getGender()
+    {
+        if (this.cgender == 0)
+        {
+            return "TD";
+        }
+        if (this.cgender == 1)
+        {
+            return "NM";
+        }
+        return "XD";
+    }
 }

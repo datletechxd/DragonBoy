@@ -23,6 +23,7 @@ namespace DragonBoy.Mod
         public static void update()
         {
             global::Char.myCharz().cspeed = runSpeed;
+            PaintInfo.update();
         }
     }
 }
