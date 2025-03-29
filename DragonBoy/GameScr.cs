@@ -6334,7 +6334,9 @@ public class GameScr : mScreen, IChatable
 					{
 						g.drawImage(ItemMap.imageFlare, xSkill + xS[i] + 13, yS[i] + 14, 3);
 					}
-				}
+                    long num4 = (long)skill.coolDown - mSystem.currentTimeMillis() + skill.lastTimeUseThisSkill;
+                    mFont.tahoma_7b_white.drawString(g, (num4 > 0L) ? string.Concat(num4 / 1000L) : string.Empty, xSkill + xS[i] + 14, yS[i] + 8, mFont.CENTER, mFont.tahoma_7b_red);
+                }
 			}
 			paintGamePad(g);
 		}
