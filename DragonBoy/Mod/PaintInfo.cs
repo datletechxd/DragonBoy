@@ -38,9 +38,13 @@ namespace DragonBoy.Mod
 
         public static void paint(mGraphics g)
         {
+            paintInfo(g);
             paintListCharsInMap(g);
             paintListBosses(g);
+        }
 
+        public static void paintInfo(mGraphics g)
+        {
             mFont.tahoma_7b_white.drawString(g, string.Concat(new string[]
             {
                 "Map: ",
@@ -48,9 +52,8 @@ namespace DragonBoy.Mod
                 " [",
                 TileMap.zoneID.ToString(),
                 "]"
-            }), 25, GameCanvas.h - 190, 0);
-
-            mFont.tahoma_7b_white.drawString(g, "Time: " + DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"), 25, GameCanvas.h - 180, 0);
+            }), 25, GameCanvas.h - 190, 0, mFont.tahoma_7b_red);
+            mFont.tahoma_7b_white.drawString(g, "Time: " + DateTime.Now.ToString("HH:mm:ss dd/MM/yyyy"), 25, GameCanvas.h - 180, 0, mFont.tahoma_7b_red);
         }
 
         public static bool isBoss(global::Char ch)
