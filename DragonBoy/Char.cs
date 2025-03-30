@@ -7687,25 +7687,6 @@ public class Char : IMapObject
 			{
 				Service.gI().funsion(fusion);
 			}
-			EffecMn.addEff(new Effect(34, cx, cy + 12, 2, 1, -1));
-		}
-		if (fusion == 6)
-		{
-			EffecMn.addEff(new Effect(38, cx, cy + 12, 2, 1, -1));
-		}
-		if (me)
-		{
-			GameCanvas.panel.hideNow();
-			isLockKey = true;
-		}
-		isFusion = true;
-		if (fusion == 1)
-		{
-			isNhapThe = false;
-		}
-		else
-		{
-			isNhapThe = true;
 		}
 	}
 
