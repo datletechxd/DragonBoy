@@ -1977,11 +1977,6 @@ public class GameScr : mScreen, IChatable
 			{
 				xS[i] = i * (25 + padSkill);
 				yS[i] = ySkill;
-				if (xS.Length > 5 && i >= xS.Length / 2)
-				{
-					xS[i] = (i - xS.Length / 2) * (25 + padSkill);
-					yS[i] = ySkill - 32;
-				}
 			}
 			xHP = array.Length * (25 + padSkill);
 			yHP = ySkill;
@@ -2004,11 +1999,6 @@ public class GameScr : mScreen, IChatable
 			{
 				xS[j] = j * wSkill;
 				yS[j] = ySkill;
-				if (xS.Length > 5 && j >= xS.Length / 2)
-				{
-					xS[j] = (j - xS.Length / 2) * wSkill;
-					yS[j] = ySkill - 32;
-				}
 			}
 			xHP = array.Length * wSkill;
 			yHP = ySkill;
@@ -2034,11 +2024,6 @@ public class GameScr : mScreen, IChatable
 		{
 			xS[k] = k * wSkill;
 			yS[k] = ySkill;
-			if (xS.Length > 5 && k >= xS.Length / 2)
-			{
-				xS[k] = (k - xS.Length / 2) * wSkill;
-				yS[k] = ySkill - 32;
-			}
 		}
 	}
 
@@ -6296,12 +6281,8 @@ public class GameScr : mScreen, IChatable
 					{
 						string[] array2 = (TField.isQwerty ? new string[10] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "0" } : new string[5] { "7", "8", "9", "10", "11" });
 						int num6 = -13;
-						if (num5 > 5 && i < 5)
-						{
-							num6 = 27;
-						}
 						mFont.tahoma_7b_dark.drawString(g, array2[i], xSkill + xS[i] + 14, yS[i] + num6, mFont.CENTER);
-						mFont.tahoma_7b_white.drawString(g, array2[i], xSkill + xS[i] + 14, yS[i] + num6 + 1, mFont.CENTER);
+						mFont.tahoma_7b_white.drawString(g, array2[i], xSkill + xS[i] + 14, yS[i] + num6 - 1, mFont.CENTER);
 					}
 					else if (!GameCanvas.isTouch)
 					{
