@@ -153,6 +153,10 @@ public class Controller : IMessageHandler
 				sbyte b67 = msg.reader().readSByte();
 				string text7 = msg.reader().readUTF();
 				short num157 = msg.reader().readShort();
+				if (text7.Contains("Nhận ngẫu nhiên") || text7.Contains("Xinbato"))
+                        {
+					return;
+				}
 				if (ItemTime.isExistMessage(b67))
 				{
 					if (num157 != 0)
