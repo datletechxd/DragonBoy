@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 
-namespace DragonBoy.Mod
+namespace DragonBoy.Mod.Utils
 {
     internal class Boss
     {
@@ -22,10 +22,10 @@ namespace DragonBoy.Mod
             {
                 '|'
             });
-            this.NameBoss = array[0].Trim();
-            this.MapName = array[1].Trim();
-            this.MapId = this.getMapID(this.MapName);
-            this.AppearTime = DateTime.Now;
+            NameBoss = array[0].Trim();
+            MapName = array[1].Trim();
+            MapId = getMapID(MapName);
+            AppearTime = DateTime.Now;
         }
 
         public int getMapID(string mapName)
@@ -42,15 +42,15 @@ namespace DragonBoy.Mod
 
         public void paint(mGraphics g, int x, int y, int align)
         {
-            TimeSpan timeSpan = DateTime.Now.Subtract(this.AppearTime);
+            TimeSpan timeSpan = DateTime.Now.Subtract(AppearTime);
             int num = (int)timeSpan.TotalSeconds;
             mFont mFont = mFont.tahoma_7_yellow;
-            if (TileMap.mapID == this.MapId)
+            if (TileMap.mapID == MapId)
             {
                 mFont = mFont.tahoma_7_red;
                 for (int i = 0; i < GameScr.vCharInMap.size(); i++)
                 {
-                    if (((global::Char)GameScr.vCharInMap.elementAt(i)).cName.Equals(this.NameBoss))
+                    if (((Char)GameScr.vCharInMap.elementAt(i)).cName.Equals(NameBoss))
                     {
                         mFont = mFont.tahoma_7b_red;
                         break;
@@ -59,11 +59,11 @@ namespace DragonBoy.Mod
             }
             mFont.drawString(g, string.Concat(new string[]
             {
-                this.NameBoss,
+                NameBoss,
                 " - ",
-                this.MapName,
+                MapName,
                 " - ",
-                (num < 60) ? (num.ToString() + "s") : (timeSpan.Minutes.ToString() + "ph"),
+                num < 60 ? num.ToString() + "s" : timeSpan.Minutes.ToString() + "ph",
                 " trước"
             }), x, y, align);
         }

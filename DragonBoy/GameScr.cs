@@ -1,6 +1,7 @@
 using System;
 using Assets.src.g;
 using DragonBoy.Mod;
+using DragonBoy.Mod.Utils;
 
 public class GameScr : mScreen, IChatable
 {
