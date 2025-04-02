@@ -71,8 +71,8 @@ namespace DragonBoy.Mod
                 "/",
                 NinjaUtil.getMoneys((long)ch.cHPFull),
                 "]"
-            }), GameCanvas.w / 2, 30, 2);
-            int num = 72;
+            }), GameCanvas.w / 2, 60, 2);
+            int num = 70;
             int num2 = 10;
             if (ch.isFreez)
             {
