@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading;
+using DragonBoy.Mod.Utils;
+using UnityEngine;
 
 namespace DragonBoy.Mod
 {
@@ -29,7 +31,7 @@ namespace DragonBoy.Mod
 
         public static void onChatFromMe(String text)
         {
-            if (text.Contains("ahsnm"))
+            if (text.Equals("ahsnm"))
             {
                 AutoSkill.isAutoBuff = !AutoSkill.isAutoBuff;
                 if (AutoSkill.isAutoBuff)
@@ -39,6 +41,21 @@ namespace DragonBoy.Mod
                 GameScr.info1.addInfo("Auto hồi sinh namec: " + (AutoSkill.isAutoBuff ? "On" : "Off"), 0);
                 text = string.Empty;
             }
+        }
+
+        public static bool updateKey(int unused)
+        {
+            if (GameCanvas.keyAsciiPress == Hotkeys.H)
+            {
+                AutoSkill.isAutoBuff = !AutoSkill.isAutoBuff;
+                if (AutoSkill.isAutoBuff)
+                {
+                    new Thread(new ThreadStart(AutoSkill.autoBuff)).Start();
+                }
+                GameScr.info1.addInfo("Auto hồi sinh namec: " + (AutoSkill.isAutoBuff ? "On" : "Off"), 0);
+                return true;
+            }
+            return false;
         }
     }
 }
